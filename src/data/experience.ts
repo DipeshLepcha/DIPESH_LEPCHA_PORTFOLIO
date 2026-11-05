@@ -1,0 +1,101 @@
+import type { ExperienceItem } from '../types/portfolio.ts';
+
+export const experienceTimeline: ExperienceItem[] = [
+  {
+    id: 'exp-1',
+    organization: 'Web & Systems Engineering Solutions',
+    role: 'Software Developer (.NET & Web Applications)',
+    employmentType: 'Full-time',
+    location: 'Sikkim / Regional Hub',
+    startDate: '2023',
+    endDate: 'Present',
+    isCurrent: true,
+    description:
+      'Designing and developing core backend modules, high-concurrency database workflows, and secure web portals using ASP.NET Core and MySQL.',
+    responsibilities: [
+      'Lead backend development for dynamic administrative portals, ticketing engines, and public service platforms.',
+      'Architect robust RESTful APIs in ASP.NET Core with strict model validation, role-based access control, and centralized Serilog telemetry.',
+      'Design, maintain, and tune relational MySQL databases, authoring complex stored procedures and views for mission-critical audit trails.',
+      'Integrate multi-vendor payment gateways with idempotency keys, automated reconciliation, and tamper-proof signature verification.',
+      'Collaborate with frontend engineers to integrate responsive client interfaces with real-time API payloads.',
+    ],
+    technologies: [
+      'C#',
+      '.NET 8 / ASP.NET Core',
+      'MySQL',
+      'Stored Procedures',
+      'REST APIs',
+      'Payment Gateway APIs',
+      'Serilog',
+      'IIS',
+    ],
+    selectedAchievements: [
+      'Eliminated checkout race conditions by engineering transactional stored procedures with row-level locks.',
+      'Reduced average API response latency by 38% through query plan restructuring and connection pooling optimization.',
+    ],
+  },
+  {
+    id: 'exp-2',
+    organization: 'Enterprise Digital Applications',
+    role: 'Software Developer (.NET & Database)',
+    employmentType: 'Full-time',
+    location: 'Siliguri / Regional',
+    startDate: '2021',
+    endDate: '2023',
+    isCurrent: false,
+    description:
+      'Engineered database-driven business software, enterprise management systems, and interactive client-facing web modules.',
+    responsibilities: [
+      'Built and maintained ASP.NET MVC business applications handling booking workflows, invoice generation, and customer record management.',
+      'Created custom SQL stored procedures, indexing strategies, and automated data archiving jobs in MySQL.',
+      'Integrated third-party SMS, email notification services, and banking webhooks into asynchronous background worker pipelines.',
+      'Implemented front-end UI enhancements using JavaScript, TypeScript, Bootstrap, and jQuery for field-agent portals.',
+    ],
+    technologies: [
+      '.NET Framework / .NET Core',
+      'C#',
+      'ASP.NET MVC',
+      'MySQL',
+      'SQL',
+      'JavaScript',
+      'jQuery',
+      'Bootstrap',
+      'Git',
+    ],
+    selectedAchievements: [
+      'Spearheaded the migration of legacy data queries into normalized, secure stored procedures, cutting data corruption incidents to zero.',
+      'Built an automated daily reconciliation script verifying thousands of daily transaction logs against gateway bank settlement reports.',
+    ],
+  },
+  {
+    id: 'exp-3',
+    organization: 'Digital Technology Services',
+    role: 'Junior Web & Software Developer',
+    employmentType: 'Full-time',
+    location: 'Sikkim, India',
+    startDate: '2019',
+    endDate: '2021',
+    isCurrent: false,
+    description:
+      'Developed web interfaces, relational schemas, and backend data endpoints for local business portals and institutional websites.',
+    responsibilities: [
+      'Wrote maintainable C# backend controllers and client-facing web forms with rigorous input validation.',
+      'Constructed relational database schemas and normalization rules in MySQL and SQL Server.',
+      'Handled server provisioning, basic IIS deployment, SSL configuration, and environment setup.',
+    ],
+    technologies: [
+      'C#',
+      '.NET',
+      'MySQL',
+      'SQL Server',
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+      'Git',
+      'IIS',
+    ],
+    selectedAchievements: [
+      'Developed and deployed over 12 customized commercial web portals with zero unplanned downtime during peak regional tourism seasons.',
+    ],
+  },
+];

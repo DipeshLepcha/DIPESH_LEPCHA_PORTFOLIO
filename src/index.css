@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@theme {
+  --animate-hobby-scroll: hobby-scroll 35s linear infinite;
+
+  @keyframes hobby-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+@layer base {
+  :root {
+    /* Japanese Ink & Vermilion color palette */
+    --color-ivory: #F4F0E8;   /* Rice paper */
+    --color-cream: #E8E0D2;   /* Warm parchment */
+    --color-forest: #343630;  /* Soft ink charcoal */
+    --color-pine: #222421;    /* Ink black */
+    --color-gold: #BD493B;    /* Vermilion red */
+    --color-stone: #817865;   /* Muted stone */
+    --color-white: #FFFFFF;
+
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-pine);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Subtle 'washi' paper texture overlay to the entire body background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='washiGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.13 0 0 0 0 0.14 0 0 0 0 0.13 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23washiGrain)'/%3E%3C!-- Subtle fibrous washi rice flecks --%3E%3Cpath d='M30 60 Q45 64 60 61 M140 180 Q155 175 170 178 M220 90 Q235 95 250 92 M180 240 Q195 235 210 238 M60 250 Q75 253 90 250 M240 280 Q255 284 270 281' stroke='%23222421' stroke-width='0.75' stroke-linecap='round' fill='none' opacity='0.25'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+  mix-blend-mode: multiply;
+}
+
+/* Japanese rice-paper grain overlay */
+.bg-grain {
+  background-color: var(--color-ivory);
+  background-image:
+    radial-gradient(
+      rgba(34, 36, 33, 0.055) 0.7px,
+      transparent 0.7px
+    );
+  background-size: 8px 8px;
+}
+
+/* Dark ink section texture */
+.bg-dark-grain {
+  background-color: var(--color-pine);
+  background-image:
+    radial-gradient(
+      rgba(244, 240, 232, 0.055) 0.7px,
+      transparent 0.7px
+    );
+  background-size: 8px 8px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-stone);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Subtle line clamp */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Gentle image glow / elevation */
+.elevation-card {
+  box-shadow:
+    0 10px 30px -10px rgba(34, 36, 33, 0.08),
+    0 4px 6px -2px rgba(34, 36, 33, 0.03);
+}
+
+.elevation-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elevation-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px -12px rgba(34, 36, 33, 0.14),
+    0 8px 16px -4px rgba(34, 36, 33, 0.06);
+}
+
+/* Vermilion accent utility */
+.text-vermilion {
+  color: var(--color-gold);
+}
+
+.bg-vermilion {
+  background-color: var(--color-gold);
+}
+
+.border-vermilion {
+  border-color: var(--color-gold);
+}
+
+/* Traditional Hanko-style seal stamp utility (using Latin/English typography) */
+.hanko-stamp {
+  border: 1.5px solid var(--color-gold);
+  color: var(--color-gold);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  user-select: none;
+  background-color: rgba(189, 73, 59, 0.06);
+}
+
+/* Keyframe animations for gentle atmospheric mist drift */
+@keyframes mistDriftSlow {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(45px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes mistDriftReverse {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-mist-slow {
+  animation: mistDriftSlow 32s ease-in-out infinite;
+}
+
+.animate-mist-reverse {
+  animation: mistDriftReverse 40s ease-in-out infinite;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
